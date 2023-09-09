@@ -1,101 +1,86 @@
-import 'package:amazon_music/homepage2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../const.dart';
-import '../playlists.dart';
+import 'const.dart';
+import 'homepage2.dart';
 
-class TrendingPlaylist extends StatefulWidget {
-  const TrendingPlaylist({super.key});
+class PlayLists extends StatefulWidget {
+  const PlayLists({super.key});
 
   @override
-  State<TrendingPlaylist> createState() => _TrendingPlaylistState();
+  State<PlayLists> createState() => _PlayListsState();
 }
 
-class _TrendingPlaylistState extends State<TrendingPlaylist> {
-  var images = [
+class _PlayListsState extends State<PlayLists> {
+  var songposter = [
     {
       'imageUrl':
-          "https://m.media-amazon.com/images/I/512GZqoMYsL._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "50 Most Played",
-      "subname": "Jasleen ROyal"
+          "https://m.media-amazon.com/images/I/519PULZL8YL._UX358_FMwebp_QL85_.jpg",
+      "name": "Heeriye (feat.Arjit)",
+      "subname": 'Jasleen ROyal, Arjit Singh',
     },
     {
       'imageUrl':
-          "https://m.media-amazon.com/images/I/51ysLEbFI6L._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "50 Most Played",
-      "subname": "Jasleen ROyal..."
+          "https://m.media-amazon.com/images/I/51W+ry1SiuL._UX358_FMwebp_QL85_.jpg",
+      "name": "Chaleya (From Jawan)",
+      "subname": 'Anirudh Ravichander',
     },
     {
       'imageUrl':
-          "https://m.media-amazon.com/images/I/61tkH1CB10L._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "Desi Vibes",
-      "subname": "Anirudh Ravichander.."
+          "https://m.media-amazon.com/images/I/51wLCuP+p-L._UX358_FMwebp_QL85_.jpg",
+      "name": "Apna Bana Le",
+      "subname": 'Sachin-Jigar & Arijit Singh',
     },
     {
       'imageUrl':
-          "https://m.media-amazon.com/images/I/51+0+gU6m9L._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "2023 SO Far",
-      "subname": "Arijit Singh..."
+          "https://m.media-amazon.com/images/I/61KpJti1SzL._UX358_FMwebp_QL85_.jpg",
+      "name": "Brahmastra",
+      "subname": ' Amitabh Bhattacharya',
     },
     {
       'imageUrl':
-          "https://m.media-amazon.com/images/I/51-P5nNV6iL._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "Ultimate Love Song",
-      "subname": "Sachin-Jigar"
+          "https://m.media-amazon.com/images/I/41zsVx0ZySL._UX358_FMwebp_QL85_.jpg",
+      "name": "Tu Jhoothi Main Makkaar",
+      "subname": 'Pritam',
     },
     {
       'imageUrl':
-          "https://m.media-amazon.com/images/I/51CKbAmFHEL._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "Hot Right Now",
-      "subname": " Neha Kakka"
+          "https://m.media-amazon.com/images/I/512-jmrxmGL._UX358_FMwebp_QL85_.jpg",
+      "name": "Still Rollen",
+      "subname": 'Shubh',
+    },
+    {
+      'imageUrl':
+          "https://m.media-amazon.com/images/I/51GR1Uo7TiL._UX358_FMwebp_QL85_.jpg",
+      "name": "Jailer",
+      "subname": 'VARIOUS ARTISTS',
+    },
+    {
+      'imageUrl':
+          "https://m.media-amazon.com/images/I/51K4ntW97FL._UX358_FMwebp_QL85_.jpg",
+      "name": "Zara Hatke Zara Bachke",
+      "subname": 'Sachin-Jigar',
+    },
+    {
+      'imageUrl':
+          "https://m.media-amazon.com/images/I/61ScBNlW3DL._UX358_FMwebp_QL85_.jpg",
+      "name": "Rocky Aur Rani",
+      "subname": 'Amitabh Bhattacharya',
+    },
+    {
+      'imageUrl':
+          "https://m.media-amazon.com/images/I/61vODacya1L._UX358_FMwebp_QL85_.jpg",
+      "name": "With You",
+      "subname": 'AP Dhillon',
+    },
+    {
+      'imageUrl':
+          "https://m.media-amazon.com/images/I/51W+ry1SiuL._UX358_FMwebp_QL85_.jpg",
+      "name": "Jawan",
+      "subname": 'Anirudh Ravichander',
     },
   ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8),
-      height: 200,
-      child: ListView.builder(
-        itemCount: images.length,
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 15),
-            child: GestureDetector(
-              onTap: () {
-                Get.to(() => PlayLists());
-              },
-              child: Column(
-                children: [
-                  Image.network(
-                    images[index]['imageUrl'].toString(),
-                    fit: BoxFit.contain,
-                    height: 140,
-                  ),
-                  height10,
-                  Text(images[index]['name'].toString()),
-                  height2,
-                  Text(
-                    images[index]['subname'].toString(),
-                    style: TextStyle(color: Colors.grey[500]),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class Playlists extends StatelessWidget {
-  
-  const Playlists({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -199,6 +184,47 @@ class Playlists extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              height10,
+              ListView.builder(
+                // scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: songposter.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          print('play');
+                        },
+                        child: ListTile(
+                          leading: Image.network(
+                            songposter[index]["imageUrl"].toString(),
+                            fit: BoxFit.contain,
+                            height: 50,
+                          ),
+                          title: Text(songposter[index]['name'].toString()),
+                          subtitle:
+                              Text(songposter[index]['subname'].toString()),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.add),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.more_horiz),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
             ],
           ),
