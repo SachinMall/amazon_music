@@ -32,15 +32,8 @@ class _HomePageSState extends State<HomePageS> {
       'imageUrl': "assets/images/Apna Bana le.jpeg",
       "name": "Apna Bana Le",
       "subname": 'Sachin-Jigar & Arijit Singh',
-    }
+    },
   ];
-
-  int _currentIndex = 0;
-  onTabSwitch(index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +51,7 @@ class _HomePageSState extends State<HomePageS> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: kwhite)),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "MUSIC",
                     style: fontsize,
@@ -75,7 +68,7 @@ class _HomePageSState extends State<HomePageS> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: kwhite)),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "PODCASTS",
                     style: fontsize,
@@ -88,20 +81,20 @@ class _HomePageSState extends State<HomePageS> {
         backgroundColor: kblack,
         elevation: 0,
         leading: IconButton(
-          padding: EdgeInsets.only(left: 18),
+          padding: const EdgeInsets.only(left: 18),
           iconSize: 27,
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.notifications,
             color: kwhite,
           ),
         ),
         actions: [
           IconButton(
-            padding: EdgeInsets.only(right: 18),
+            padding: const EdgeInsets.only(right: 18),
             iconSize: 27,
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.settings,
               color: kwhite,
             ),
@@ -109,58 +102,28 @@ class _HomePageSState extends State<HomePageS> {
         ],
       ),
       body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Popular Hindi Songs",
-                      style:
-                          TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Get.to(() => SeeMore1());
-                      },
-                      child: Container(
-                        height: 30,
-                        width: 90,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.grey[800],
-                        ),
-                        child: Center(
-                          child: Text(
-                            "SEE MORE",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              TitlewithButton(
+                title: "Popular Hindi Songs",
+                buttonText: "SEE MORE",
+                onTap: () {
+                  Get.to(() => const SeeMore1());
+                },
               ),
               height10,
               ListView.builder(
                 // scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                // physics: AlwaysScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: songposter.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
-                    onTap: () {
-                      print('play');
-                    },
+                    onTap: () {},
                     child: Column(
                       children: [
                         ListTile(
@@ -177,11 +140,11 @@ class _HomePageSState extends State<HomePageS> {
                             children: [
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.add),
+                                icon: const Icon(Icons.add),
                               ),
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.more_horiz),
+                                icon: const Icon(Icons.more_horiz),
                               ),
                             ],
                           ),
@@ -192,176 +155,86 @@ class _HomePageSState extends State<HomePageS> {
                 },
               ),
               height15,
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Trending Playlists",
-                      style:
-                          TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        height: 30,
-                        width: 90,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.grey[800],
-                        ),
-                        child: Center(
-                          child: Text(
-                            "SEE MORE",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              TitlewithButton(
+                buttonText: 'SEE MORE',
+                title: 'Trending Playlists',
+                onTap: () {},
               ),
               height10,
-              TrendingPlaylist(),
+              const TrendingPlaylist(),
               height10,
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Start a Podcast Habit",
-                      style:
-                          TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: 30,
-                        width: 90,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.grey[800],
-                        ),
-                        child: Center(
-                          child: Text(
-                            "SEE MORE",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              TitlewithButton(
+                buttonText: 'SEE MORE',
+                title: 'Start a Podcast Habit',
+                onTap: () {},
               ),
               height10,
-              Podcasts(),
+              const Podcasts(),
               height10,
-              SongCards(),
+              const SongCards(),
               height15,
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Trending Songs",
-                      style:
-                          TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: 30,
-                        width: 90,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.grey[800],
-                        ),
-                        child: Center(
-                          child: Text(
-                            "SEE MORE",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              TitlewithButton(
+                buttonText: 'SEE MORE',
+                title: 'Trending Songs',
+                onTap: () {},
               ),
-              TrendingSongs(),
+              const TrendingSongs(),
               height10,
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "All Stars",
-                      style:
-                          TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 90,
-                        height: 30,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              12,
-                            ),
-                            color: Colors.grey[800]),
-                        child: Center(
-                          child: Text(
-                            "SEE MORE",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+              TitlewithButton(
+                buttonText: 'SEE MORE',
+                title: 'All Stars',
+                onTap: () {},
               ),
-              AllStarsPlayList(),
+              const AllStarsPlayList(),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabSwitch,
-        selectedItemColor: Colors.lightBlue[300],
-        unselectedItemColor: Colors.grey[300],
-        currentIndex: _currentIndex,
-        backgroundColor: Colors.black,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
+    );
+  }
+}
+
+class TitlewithButton extends StatelessWidget {
+  final String title, buttonText;
+  final void Function() onTap;
+
+  const TitlewithButton(
+      {super.key,
+      required this.title,
+      required this.buttonText,
+      required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+          ),
+          InkWell(
+            onTap: onTap,
+            child: Container(
+              height: 30,
+              width: 90,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.grey[800],
               ),
-              label: "HOME"),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search_sharp,
+              child: Center(
+                child: Text(
+                  buttonText,
+                  style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-              label: "FIND"),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.library_music_sharp,
-              ),
-              label: "LIBRARY"),
+            ),
+          ),
         ],
       ),
     );

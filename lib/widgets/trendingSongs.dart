@@ -32,6 +32,7 @@ class _TrendingSongsState extends State<TrendingSongs> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: trending.length,
       itemBuilder: (BuildContext context, int index) {
@@ -52,11 +53,11 @@ class _TrendingSongsState extends State<TrendingSongs> {
                   children: [
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.add),
+                      icon: const Icon(Icons.add),
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.more_horiz),
+                      icon: const Icon(Icons.more_horiz),
                     ),
                   ],
                 ),

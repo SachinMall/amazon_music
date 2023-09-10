@@ -18,13 +18,13 @@ class _TrendingPlaylistState extends State<TrendingPlaylist> {
     {
       'imageUrl':
           "https://m.media-amazon.com/images/I/512GZqoMYsL._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "50 Most Played",
+      "name": "50 Most Played:\nIndia",
       "subname": "Jasleen ROyal"
     },
     {
       'imageUrl':
           "https://m.media-amazon.com/images/I/51ysLEbFI6L._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "50 Most Played",
+      "name": "50 Most Played: Hindi",
       "subname": "Jasleen ROyal..."
     },
     {
@@ -36,7 +36,7 @@ class _TrendingPlaylistState extends State<TrendingPlaylist> {
     {
       'imageUrl':
           "https://m.media-amazon.com/images/I/51+0+gU6m9L._SX354_SY354_BL0_QL100__UX358_FMwebp_QL85_.jpg",
-      "name": "2023 SO Far",
+      "name": "2023 SO Far:India",
       "subname": "Arijit Singh..."
     },
     {
@@ -56,8 +56,8 @@ class _TrendingPlaylistState extends State<TrendingPlaylist> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      height: 200,
+      padding: const EdgeInsets.all(8),
+      height: 220,
       child: ListView.builder(
         itemCount: images.length,
         scrollDirection: Axis.horizontal,
@@ -67,9 +67,13 @@ class _TrendingPlaylistState extends State<TrendingPlaylist> {
             padding: const EdgeInsets.only(right: 15),
             child: GestureDetector(
               onTap: () {
-                Get.to(() => PlayLists());
+                Get.to(() => PlayLists(
+                      imageUrl: images[index]['imageUrl'].toString(),
+                      name: images[index]["name"].toString(),
+                    ));
               },
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.network(
                     images[index]['imageUrl'].toString(),
@@ -94,7 +98,6 @@ class _TrendingPlaylistState extends State<TrendingPlaylist> {
 }
 
 class Playlists extends StatelessWidget {
-  
   const Playlists({super.key});
 
   @override
@@ -106,12 +109,12 @@ class Playlists extends StatelessWidget {
         automaticallyImplyLeading: false,
         leading: IconButton(
             onPressed: () {
-              Get.to(() => HomePageS());
+              Get.to(() => const HomePageS());
             },
-            icon: Icon(Icons.arrow_back_ios_new)),
+            icon: const Icon(Icons.arrow_back_ios_new)),
       ),
       body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -164,35 +167,35 @@ class Playlists extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.shuffle_rounded),
+                    icon: const Icon(Icons.shuffle_rounded),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.add,
                       size: 30,
                     ),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.file_download_outlined,
                       size: 30,
                     ),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.more_horiz,
                       size: 30,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 120,
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.play_circle_fill_outlined,
                       color: Color.fromARGB(255, 39, 231, 238),
                       size: 60,

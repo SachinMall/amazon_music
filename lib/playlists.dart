@@ -6,7 +6,9 @@ import 'const.dart';
 import 'homepage2.dart';
 
 class PlayLists extends StatefulWidget {
-  const PlayLists({super.key});
+  final String imageUrl;
+  final String name;
+  const PlayLists({super.key, required this.imageUrl, required this.name});
 
   @override
   State<PlayLists> createState() => _PlayListsState();
@@ -91,16 +93,16 @@ class _PlayListsState extends State<PlayLists> {
         automaticallyImplyLeading: false,
         leading: IconButton(
             onPressed: () {
-              Get.to(() => HomePageS());
+              Get.to(() => const HomePageS());
             },
-            icon: Icon(Icons.arrow_back_ios_new)),
+            icon: const Icon(Icons.arrow_back_ios_new)),
       ),
       body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
@@ -108,7 +110,7 @@ class _PlayListsState extends State<PlayLists> {
                   borderRadius: BorderRadius.circular(12),
                   // height: 300,
                   child: Image.network(
-                    "https://m.media-amazon.com/images/I/512GZqoMYsL._UX358_FMwebp_QL85_.jpg",
+                    widget.imageUrl,
                     fit: BoxFit.contain,
                     height: 250,
                   ),
@@ -116,12 +118,7 @@ class _PlayListsState extends State<PlayLists> {
               ),
               height15,
               Text(
-                "50 Most Played:",
-                style: GoogleFonts.archivoBlack(
-                    fontSize: 32, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                "India",
+                widget.name,
                 style: GoogleFonts.archivoBlack(
                     fontSize: 32, fontWeight: FontWeight.bold),
               ),
@@ -149,35 +146,35 @@ class _PlayListsState extends State<PlayLists> {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.shuffle_rounded),
+                    icon: const Icon(Icons.shuffle_rounded),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.add,
                       size: 30,
                     ),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.file_download_outlined,
                       size: 30,
                     ),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.more_horiz,
                       size: 30,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 120,
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.play_circle_fill_outlined,
                       color: Color.fromARGB(255, 39, 231, 238),
                       size: 60,
@@ -189,15 +186,13 @@ class _PlayListsState extends State<PlayLists> {
               ListView.builder(
                 // scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: songposter.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: [
                       GestureDetector(
-                        onTap: () {
-                          print('play');
-                        },
+                        onTap: () {},
                         child: ListTile(
                           leading: Image.network(
                             songposter[index]["imageUrl"].toString(),
@@ -212,11 +207,11 @@ class _PlayListsState extends State<PlayLists> {
                             children: [
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.add),
+                                icon: const Icon(Icons.add),
                               ),
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.more_horiz),
+                                icon: const Icon(Icons.more_horiz),
                               ),
                             ],
                           ),

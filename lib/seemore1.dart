@@ -82,46 +82,40 @@ class _SeeMore1State extends State<SeeMore1> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Popular Hindi SOngs"),
+        title: const Text("Popular Hindi SOngs"),
       ),
       body: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: Column(
             children: [
               ListView.builder(
                 // scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: songposter.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          print('play');
-                        },
-                        child: ListTile(
-                          leading: Image.network(
-                            songposter[index]["imageUrl"].toString(),
-                            fit: BoxFit.contain,
-                            height: 50,
-                          ),
-                          title: Text(songposter[index]['name'].toString()),
-                          subtitle:
-                              Text(songposter[index]['subname'].toString()),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.add),
-                              ),
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.more_horiz),
-                              ),
-                            ],
-                          ),
+                      ListTile(
+                        leading: Image.network(
+                          songposter[index]["imageUrl"].toString(),
+                          fit: BoxFit.contain,
+                          height: 50,
+                        ),
+                        title: Text(songposter[index]['name'].toString()),
+                        subtitle: Text(songposter[index]['subname'].toString()),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.add),
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.more_horiz),
+                            ),
+                          ],
                         ),
                       ),
                     ],

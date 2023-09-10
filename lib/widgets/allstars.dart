@@ -52,7 +52,7 @@ class _AllStarsPlayListState extends State<AllStarsPlayList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       height: 200,
       child: ListView.builder(
         itemCount: images.length,
@@ -61,9 +61,8 @@ class _AllStarsPlayListState extends State<AllStarsPlayList> {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: 15),
-            child: GestureDetector(onTap: () {
-              
-            },
+            child: GestureDetector(
+              onTap: () {},
               child: Column(
                 children: [
                   Image.network(
