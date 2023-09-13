@@ -1,5 +1,10 @@
 import 'package:amazon_music/const.dart';
+import 'package:amazon_music/widgets/findMoods.dart';
+import 'package:amazon_music/widgets/find_podcasts.dart';
+
 import 'package:flutter/material.dart';
+
+import 'findlisten.dart';
 
 class Find extends StatefulWidget {
   const Find({super.key});
@@ -36,6 +41,7 @@ class _FindState extends State<Find> {
         ],
       ),
       body: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +64,7 @@ class _FindState extends State<Find> {
                     Icons.search,
                     color: Colors.grey,
                   ),
-                  border: UnderlineInputBorder(
+                  border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(18),
                       borderSide: BorderSide.none),
                   contentPadding: const EdgeInsets.symmetric(vertical: 12),
@@ -66,67 +72,42 @@ class _FindState extends State<Find> {
               ),
             ),
             height10,
-            SingleChildScrollView(
-              physics: const AlwaysScrollableScrollPhysics(),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Container(
-                      height: 50,
-                      width: 110,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(18),
-                          color: Colors.grey[800]),
-                      child: TextButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.podcasts_rounded,
-                          color: Colors.white,
-                          size: 24,
-                        ),
-                        label: const Text(
-                          "Podcasts",
-                          style: TextStyle(fontSize: 14, color: Colors.white),
-                        ),
-                      ),
-                    ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Container(
+                height: 50,
+                width: 110,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    color: Colors.grey[800]),
+                child: TextButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.podcasts_rounded,
+                    color: Colors.white,
+                    size: 24,
                   ),
-                  // height20,
-                  TitileButton(
-                    buttonText: "SEE MORE",
-                    onTap: () {},
-                    title: "Moods & Activities",
+                  label: const Text(
+                    "Podcasts",
+                    style: TextStyle(fontSize: 14, color: Colors.white),
                   ),
-                  SizedBox(
-                    height: 200,
-                    child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                      ),
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          color: Colors.blue,
-                          height: 20,
-                          width: 50,
-                          margin: const EdgeInsets.all(8),
-                          child: Center(
-                            child: Text(
-                              'Item $index',
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        );
-                      },
-                      itemCount: 8,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
+            TitileButton(
+              buttonText: "SEE MORE",
+              onTap: () {},
+              title: "Moods & Activities",
+            ),
+            const FindGridView(),
+            TitileButton(
+                onTap: () {}, buttonText: 'SEE MORE', title: "Listen Your Way"),
+            const FindListen(),
+            TitileButton(
+                buttonText: 'SEE MORE',
+                onTap: () {},
+                title: "Podcasts By Category"),
+            const FindPodcasts(),
           ],
         ),
       ),
@@ -168,7 +149,7 @@ class TitileButton extends StatelessWidget {
                 child: Text(
                   buttonText,
                   style: const TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
