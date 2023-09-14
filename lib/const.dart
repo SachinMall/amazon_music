@@ -21,7 +21,7 @@ const SizedBox height10 = SizedBox(height: 10);
 const SizedBox height15 = SizedBox(height: 15);
 const SizedBox height20 = SizedBox(height: 20);
 
-const TextStyle fontsize = TextStyle(fontSize: 17, fontWeight: FontWeight.bold);
+const TextStyle fontsize = TextStyle(fontSize: 13, fontWeight: FontWeight.bold);
 
 //borderRadius
 BorderRadius bRadius10 = BorderRadius.circular(12);
@@ -39,7 +39,7 @@ const TextStyle subHeadingStyle =
     TextStyle(fontSize: 16, color: kgrey, fontWeight: FontWeight.w400);
 
 
-    
+
 
 
 // Get.to(()=> HomePage());

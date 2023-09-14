@@ -15,6 +15,8 @@ class _RootPageState extends State<RootPage> {
     const HomePageS(),
     const Find(),
     const LibraryPage(),
+    // const TrendingPlaylist(),
+    //  const NotificationIcon(),
   ];
 
   int _currentIndex = 0;
