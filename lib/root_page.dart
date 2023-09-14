@@ -28,29 +28,32 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pageoptions[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabSwitch,
-        selectedItemColor: Colors.lightBlue[300],
-        unselectedItemColor: Colors.grey[300],
-        currentIndex: _currentIndex,
-        backgroundColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: "HOME"),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search_sharp,
-              ),
-              label: "FIND"),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.library_music_sharp,
-              ),
-              label: "LIBRARY"),
-        ],
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
+        child: BottomNavigationBar(
+          onTap: onTabSwitch,
+          selectedItemColor: Colors.lightBlue[300],
+          unselectedItemColor: Colors.grey[300],
+          currentIndex: _currentIndex,
+          backgroundColor: Colors.black,
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                ),
+                label: "HOME"),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.search_sharp,
+                ),
+                label: "FIND"),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person_2_sharp,
+                ),
+                label: "LIBRARY"),
+          ],
+        ),
       ),
     );
   }

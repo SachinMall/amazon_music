@@ -93,7 +93,7 @@ class _PlayListsState extends State<PlayLists> {
         automaticallyImplyLeading: false,
         leading: IconButton(
             onPressed: () {
-              Get.to(() => const HomePageS());
+              Get.offAll(() => const HomePageS());
             },
             icon: const Icon(Icons.arrow_back_ios_new)),
       ),
