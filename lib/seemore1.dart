@@ -127,3 +127,93 @@ class _SeeMore1State extends State<SeeMore1> {
     );
   }
 }
+
+
+// GestureDetector(
+//             onTap: () {
+//               showModalBottomSheet(
+//                 backgroundColor: Colors.grey[1100],
+//                 shape: const RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.only(
+//                       topLeft: Radius.circular(20),
+//                       topRight: Radius.circular(20)),
+//                 ),
+//                 context: context,
+//                 builder: (BuildContext context) {
+//                   return GestureDetector(
+//                     onTap: () {
+//                       print("object");
+//                     },
+//                     child: const Column(
+//                       children: <Widget>[
+//                         ListTile(
+//                           leading: Icon(Icons.directions_car_filled_rounded),
+//                           title: Text('Car Mode'),
+//                         ),
+//                         SizedBox(
+//                           width: 380,
+//                           child: Divider(
+//                               thickness: 0.1, color: Colors.white, height: 0.3),
+//                         ),
+//                         ListTile(
+//                           leading: Icon(Icons.toggle_off),
+//                           title: Text('Offline Mode'),
+//                         ),
+//                         SizedBox(
+//                           width: 380,
+//                           child: Divider(
+//                               thickness: 0.1, color: Colors.white, height: 0.3),
+//                         ),
+//                         ListTile(
+//                           leading: Icon(Icons.cast),
+//                           title: Text('Connected to a Device'),
+//                         ),
+//                         SizedBox(
+//                           width: 380,
+//                           child: Divider(
+//                               thickness: 0.1, color: Colors.white, height: 0.3),
+//                         ),
+//                         ListTile(
+//                           leading: Icon(Icons.person),
+//                           title: Text('My Profile'),
+//                         ),
+//                         SizedBox(
+//                           width: 380,
+//                           child: Divider(
+//                               thickness: 0.1, color: Colors.white, height: 0.3),
+//                         ),
+//                         ListTile(
+//                           leading: Icon(Icons.settings),
+//                           title: Text('Settings'),
+//                         ),
+//                         SizedBox(
+//                           width: 380,
+//                           child: Divider(
+//                               thickness: 0.1, color: Colors.white, height: 0.3),
+//                         ),
+//                         ListTile(
+//                           leading: Icon(Icons.help),
+//                           title: Text('Help & Feedback'),
+//                         ),
+//                         SizedBox(
+//                           height: 20,
+//                         ),
+//                         Text(
+//                           "Dismiss",
+//                           style: TextStyle(fontWeight: FontWeight.bold),
+//                         ),
+//                       ],
+//                     ),
+//                   );
+//                 },
+//               );
+//             },
+//             child: const Padding(
+//               padding: EdgeInsets.only(right: 18),
+//               child: Icon(
+//                 Icons.settings,
+//                 size: 27,
+//                 color: kwhite,
+//               ),
+//             ),
+//           ),
