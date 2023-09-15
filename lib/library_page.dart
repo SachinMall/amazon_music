@@ -2,8 +2,10 @@ import 'package:amazon_music/widgets/library_MadeforYou.dart';
 import 'package:amazon_music/widgets/library_playlists.dart';
 import 'package:amazon_music/widgets/trendingplaylist.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'const.dart';
+import 'widgets/notification_icon.dart';
 
 class LibraryPage extends StatelessWidget {
   Widget history({
@@ -123,7 +125,9 @@ class LibraryPage extends StatelessWidget {
         leading: IconButton(
           padding: const EdgeInsets.only(left: 18),
           iconSize: 27,
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => const NotificationIcon());
+          },
           icon: const Icon(
             Icons.notifications,
           ),

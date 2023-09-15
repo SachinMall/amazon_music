@@ -1,7 +1,6 @@
+import 'package:amazon_music/root_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'music_player.dart';
 // import 'homepage.dart';
 
 void main() {
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(color: Colors.black),
           scaffoldBackgroundColor: Colors.black,
           brightness: Brightness.dark),
-      home: const MusicPlayerScreen(),
+      home: const RootPage(),
     );
   }
 }
