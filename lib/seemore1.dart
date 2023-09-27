@@ -128,7 +128,6 @@ class _SeeMore1State extends State<SeeMore1> {
   }
 }
 
-
 // GestureDetector(
 //             onTap: () {
 //               showModalBottomSheet(

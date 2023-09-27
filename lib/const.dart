@@ -38,9 +38,5 @@ const TextStyle headingStyleWhite =
 const TextStyle subHeadingStyle =
     TextStyle(fontSize: 16, color: kgrey, fontWeight: FontWeight.w400);
 
-
-
-
-
 // Get.to(()=> HomePage());
 // Get.offAll(()=> HomePage());
